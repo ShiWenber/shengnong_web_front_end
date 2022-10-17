@@ -2,31 +2,17 @@
   <div class="login">
     <div class="login_form">
       <p>后台管理</p>
-      <el-tabs v-model="activeName" @tab-click="handleClick" >
+      <el-tabs v-model="activeName" @tab-click="handleClick">
         <el-tab-pane label="登录" name="first">
-          <el-form
-            :model="loginForm"
-            :rules="rules"
-            ref="loginForm"
-            @submit.native.prevent    
-          >
+          <el-form :model="loginForm" :rules="rules" ref="loginForm" @submit.native.prevent>
             <el-form-item label="" prop="account" class="elItem">
-              <el-input
-                type="text"
-                autocomplete="off"
-                v-model="loginForm.account"
-                prefix-icon="el-icon-user-solid"
-                placeholder="请输入用户名"
-              ></el-input>
+              <el-input type="text" autocomplete="off" v-model="loginForm.account" prefix-icon="user"
+                placeholder="请输入用户名">
+              </el-input>
             </el-form-item>
             <el-form-item label="" prop="password">
-              <el-input
-                type="password"
-                autocomplete="off"
-                v-model="loginForm.password"
-                prefix-icon="el-icon-lock"
-                placeholder="请输入密码"
-              ></el-input>
+              <el-input type="password" autocomplete="off" v-model="loginForm.password" prefix-icon="lock"
+                placeholder="请输入密码"></el-input>
             </el-form-item>
             <el-form-item class="btns">
               <el-button type="primary" @click="goToLogin" native-type="submit">登录</el-button>
@@ -35,7 +21,7 @@
           </el-form>
         </el-tab-pane>
         <el-tab-pane label="注册" name="second">
-            <!-- //注册组件 -->
+          <!-- //注册组件 -->
           <register></register>
         </el-tab-pane>
       </el-tabs>
@@ -71,7 +57,7 @@ export default {
         account: "",
         password: "",
       },
-      activeName:'first',//默认显示登录页面
+      activeName: 'first',//默认显示登录页面
       rules: {
         account: [
           {
@@ -89,7 +75,7 @@ export default {
     };
   },
   methods: {
-//固定的账户密码判断实现简单的登录跳转功能，只能测试用
+    //固定的账户密码判断实现简单的登录跳转功能，只能测试用
     goToLogin() {
       this.$refs["loginForm"].validate((valid) => {
         if (valid) {
@@ -112,9 +98,9 @@ export default {
     resetLoginForm() {
       this.$refs["loginForm"].resetFields();
     },
-    handleClick(){}
+    handleClick() { }
   },
-  components:{
+  components: {
     register
   }
 };
@@ -124,28 +110,42 @@ export default {
 .login {
   width: 100%;
   height: 100vh;
-  background-image: url("../assets/login/login.jpg");//背景图
+  // background-image: url("../assets/login/login.jpg");//背景图
   background-size: 100% 100%;
   background-position: center center;
   overflow: auto;
   position: relative;
+  padding: 5%;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  // text-align: center;
   .login_form {
-    width: 400px;
-    height: 360px;
-    position: absolute;
-    left: 78%;
-    top: 50%;
-    margin-left: -200px;
-    margin-top: -150px;
-    padding: 10px;
+    // // width: 400px;
+    width: 100%;
+    // // height: 360px;
+    // height: auto;
+    // position: relative;
+    // left: 50%;
+    // top: 50%;
+    // margin-left: -200px;
+    padding: 4%;
     background: #fff;
     border-radius: 10px;
     box-shadow: 0 0 10px #ddd;
+
+    display: inline;
+
+
+
     .btns {
       display: flex;
       justify-content: flex-end;
     }
   }
+
   p {
     font-size: 24px;
     text-align: center;

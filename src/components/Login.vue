@@ -1,7 +1,7 @@
 <template>
   <div class="login">
     <div class="login_form">
-      <p>绳农之策后台管理</p>
+      <p>后台管理</p>
       <el-tabs v-model="activeName" @tab-click="handleClick" >
         <el-tab-pane label="登录" name="first">
           <el-form
@@ -35,7 +35,7 @@
           </el-form>
         </el-tab-pane>
         <el-tab-pane label="注册" name="second">
-            //注册组件
+            <!-- //注册组件 -->
           <register></register>
         </el-tab-pane>
       </el-tabs>
